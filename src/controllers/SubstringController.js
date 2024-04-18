@@ -2,6 +2,18 @@ const Substring = require('../models/SubstringModel');
 
 const findSubstring = require('../utils/ejercicio1_v1');
 
+
+// obtener los datos guardados en MongoDB
+const getSubstring = async (res) => {
+    try {
+        const substrings = await Substring.find();
+        res.status(200).json({ data: substrings });
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener datos de MongoDB', error: error.message });
+    }
+}
+
+// guardar los datos en MongoDB
 const createSubstring = async (req, res) => {
     const { s, words } = req.body;
 
@@ -28,4 +40,4 @@ const createSubstring = async (req, res) => {
     }
 }
 
-module.exports =  { createSubstring };
+module.exports =  { createSubstring , getSubstring };

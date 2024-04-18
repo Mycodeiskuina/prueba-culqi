@@ -39,6 +39,6 @@ const findSubstring = function(s, words) {
         }
     }
     return result;
-};
+}; 
 
 module.exports = findSubstring;
