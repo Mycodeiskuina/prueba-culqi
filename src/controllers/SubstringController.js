@@ -4,7 +4,7 @@ const findSubstring = require('../utils/ejercicio1_v1');
 
 
 // obtener los datos guardados en MongoDB
-const getSubstring = async (res) => {
+const getSubstring = async (req, res) => {
     try {
         const substrings = await Substring.find();
         res.status(200).json({ data: substrings });
